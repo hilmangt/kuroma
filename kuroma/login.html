@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>internet hotspot > login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="-1" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+
+<style type="text/css">
+body {color: #ffffff; font-size: 10px; font-family: verdana;}
+textarea,input,select {
+background-color: #FDFBFB;
+border: 1px solid #000000;
+border-radius: 50px;
+padding: 5px;
+margin: 2px;
+font-size: 14px;
+color: #727171;
+}
+
+a, a:link, a:visited, a:active { color: #ffffff; text-decoration: none; font-size: 10px; }
+a:hover { border-bottom: 1px dotted #000000; color: #ff0000; }
+img {border: none;}
+td { font-size: 14px; color: #ffffff; }
+
+body{
+	background-image: url(img/pala.gif);
+	height: 100%;
+	background-repeat: repeat-x;
+	background-position: center;
+ 	background-size: cover;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+	<marquee style="font-size: 15px ;font-weight: bold; color: #ffffff; border: double;">SELAMAT DATANG DI SMKS BHINNEKA KARAWANG</marquee>
+
+$(if chap-id)
+	<form name="sendin" action="$(link-login-only)" method="post">
+		<input type="hidden" name="username" />
+		<input type="hidden" name="password" />
+		<input type="hidden" name="dst" value="$(link-orig)" />
+		<input type="hidden" name="popup" value="true" />
+	</form>
+	
+	<script type="text/javascript" src="/md5.js"></script>
+	<script type="text/javascript">
+	<!--
+	    function doLogin() {
+		document.sendin.username.value = document.login.username.value;
+		document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+		document.sendin.submit();
+		return false;
+	    }
+	//-->
+	</script>
+$(endif)
+
+<center>
+	<p><h1>UJI KOMPETENSI KEAHLIAN 2024</h1></p>
+</center>
+<div align="center">
+<a href="$(link-login-only)?target=lv&amp;dst=$(link-orig-esc)"><h1>UKK TKJ 2024</h1></a>
+</div>
+<center>
+<img src="img/sako.png" width="85" height="85">
+<img src="img/saa-removebg.png" width="75" height="85">
+</center>
+<center>
+	<p><h1>SMKS BHINNEKA KARAWANG</h1></p>
+</center>
+<table width="100%" style="margin-top: 10%;">
+	<tr>
+	<td align="center" valign="middle">
+		<div class="notice" style="color: #ffffff; font-size: 10px">Tolong Login Jika Ingin Menggunkan Internet<br />$(if trial == 'yes')Free trial available, <a style="color: #FF8080"href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">click here</a>.$(endif)</div><br />
+		<table width="280" height="280" style="border: 5px solid #00ff4c; padding: 0px;" cellpadding="0" cellspacing="0">
+			<tr>
+				<td align="center" valign="bottom" height="175" colspan="2"> 
+					<form name="login" action="$(link-login-only)" method="post"
+					    $(if chap-id) onSubmit="return doLogin()" $(endif)>
+						<input type="hidden" name="dst" value="$(link-orig)" />
+						<input type="hidden" name="popup" value="true" />
+						<p><h1>LOGIN</h1></p>
+							<table width="100" style="background:transparent f">
+								<tr><td align="right">username</td>
+										<td><input style="width: 150px" name="username" type="text" value="$(username)"/></td>
+								</tr>
+								<tr><td align="right">password</td>
+										<td><input style="width: 150px" name="password" type="password"/></td>
+								</tr>
+								<tr><td>&nbsp;</td>
+										<td><input type="submit" value="Login"  /></td>
+								</tr>
+							</table>
+					</form>
+				</td>
+			</tr>
+			<tr><td align="center"><a href="https://www.smkbhinneka-karawang.sch.id/" target="_blank" style="border: none;"><img src="img/logobottom.gif" width="100" height="100" alt="mikrotik" /><marquee style="font-size: 15px ;font-weight: bold;">SELAMAT DATANG DI SMKS BHINNEKA KARAWANG</marquee></a></td></tr>
+
+		</table>
+	
+
+
+	<br /><div style="color: #ffffff; font-size: 10px"><h1> POWERED BY HILMAN RUSYAD XII TKJ 1 SMKS BHINNEKA KARAWANG</h1></div>
+	$(if error)<br /><div style="color: #FF8080; font-size: 9px">$(error)</div>$(endif)
+	</td>
+	</tr>
+</table>
+
+<script type="text/javascript">
+<!--
+  document.login.username.focus();
+//-->
+</script>
+</body>
+</html>
